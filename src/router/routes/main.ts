@@ -34,6 +34,14 @@ const mainRoutes: AppRouteRecordRaw[] = [
     },
   },
   {
+    path: "/403",
+    name: "Forbidden",
+    component: () => import("../../views/403.vue"),
+    meta: {
+      title: "权限不足",
+    },
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: () => import("../../views/NotFound.vue"),
