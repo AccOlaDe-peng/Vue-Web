@@ -126,7 +126,7 @@ const resetForm = reactive({
 
 // 跳转到登录页
 const goToLogin = () => {
-  router.push("/auth/login");
+  router.push("/login");
 };
 
 // 获取验证码

@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import pinia from "./stores";
+import "./assets/css/tailwind.css";
 import "./assets/css/main.css";
 
 // 引入Element Plus

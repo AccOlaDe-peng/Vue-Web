@@ -10,14 +10,6 @@ const authRoutes: AppRouteRecordRaw[] = [
     },
   },
   {
-    path: "/register",
-    name: "Register",
-    component: () => import("@/views/auth/Register.vue"),
-    meta: {
-      title: "注册",
-    },
-  },
-  {
     path: "/reset-password",
     name: "ResetPassword",
     component: () => import("@/views/auth/ResetPassword.vue"),

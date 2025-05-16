@@ -52,11 +52,16 @@
               />
               <label for="remember">记住我</label>
             </div>
-            <router-link to="/auth/reset-password" class="forgot-password"
+            <router-link to="/reset-password" class="forgot-password"
               >忘记密码?</router-link
             >
           </div>
-          <button class="login-button" @click="handleLogin">登录</button>
+          <button
+            class="login-button bg-pink-500 hover:bg-pink-600 transition-colors duration-300"
+            @click="handleLogin"
+          >
+            登录
+          </button>
 
           <div class="login-divider">
             <span>其他登录方式</span>
@@ -129,7 +134,12 @@
               </label>
             </div>
           </div>
-          <button class="login-button" @click="handleRegister">注册</button>
+          <button
+            class="login-button bg-pink-500 hover:bg-pink-600 transition-colors duration-300"
+            @click="handleRegister"
+          >
+            注册
+          </button>
         </div>
       </div>
 
