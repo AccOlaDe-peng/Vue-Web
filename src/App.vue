@@ -1,12 +1,12 @@
-<script setup>
-// 使用组合式API不需要导出默认对象
-</script>
-
 <template>
   <div class="app-container">
     <router-view />
   </div>
 </template>
+
+<script setup>
+// 使用组合式API不需要导出默认对象
+</script>
 
 <style>
 * {

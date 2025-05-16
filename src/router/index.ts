@@ -23,7 +23,7 @@ const router = createRouter({
 });
 
 // 全局前置守卫，修改页面标题
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   // 设置页面标题
   document.title = to.meta.title
     ? `${to.meta.title} - ${APP_TITLE}`
