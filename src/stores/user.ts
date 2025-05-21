@@ -11,9 +11,9 @@ interface UserInfo {
 
 export const useUserStore = defineStore("user", {
   state: () => ({
-    token: localStorage.getItem("token") || "",
-    userInfo: JSON.parse(localStorage.getItem("userInfo") || "{}") as UserInfo,
-    isLoggedIn: !!localStorage.getItem("token"),
+    token: "",
+    userInfo: {} as UserInfo,
+    isLoggedIn: false,
   }),
 
   getters: {
@@ -27,20 +27,17 @@ export const useUserStore = defineStore("user", {
     // 设置token
     setToken(token: string) {
       this.token = token;
-      localStorage.setItem("token", token);
       this.isLoggedIn = true;
     },
 
     // 设置用户信息
     setUserInfo(userInfo: UserInfo) {
       this.userInfo = userInfo;
-      localStorage.setItem("userInfo", JSON.stringify(userInfo));
     },
 
     // 更新用户信息（部分更新）
     updateUserInfo(userInfo: Partial<UserInfo>) {
       this.userInfo = { ...this.userInfo, ...userInfo };
-      localStorage.setItem("userInfo", JSON.stringify(this.userInfo));
     },
 
     // 登录
@@ -54,8 +51,6 @@ export const useUserStore = defineStore("user", {
       this.token = "";
       this.userInfo = {};
       this.isLoggedIn = false;
-      localStorage.removeItem("token");
-      localStorage.removeItem("userInfo");
     },
 
     // 检查token是否有效（可以在这里添加token验证逻辑）
@@ -63,4 +58,6 @@ export const useUserStore = defineStore("user", {
       return !!this.token;
     },
   },
+
+  persist: true,
 });

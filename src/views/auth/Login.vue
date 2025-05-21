@@ -190,6 +190,7 @@ import { login } from "@/api/auth";
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
 import { encryptPassword, importRsaPublicKey } from "@/utils/tool";
+import { useUserStore } from "@/stores/user";
 
 const router = useRouter();
 const activeTab = ref("login");
@@ -224,8 +225,13 @@ const registerErrors = reactive({
   agreement: "",
 });
 
+const userStore = useUserStore();
+
 // 登录方法
 const handleLogin = async () => {
+  const setToken = (token: string) => {
+    userStore.setToken(token);
+  };
   // 重置错误信息
   loginErrors.username = "";
   loginErrors.password = "";
@@ -260,13 +266,10 @@ const handleLogin = async () => {
     params.password = encryptedPassword;
   }
 
-  // 这里实现登录逻辑
-  console.log("登录表单提交", params);
-
   const res = await login(params);
-  console.log(res);
-  // 模拟登录成功后跳转到首页
-  // router.push("/");
+  const { access_token } = res.data;
+  setToken(access_token);
+  router.push("/");
 };
 
 // 注册方法

@@ -39,10 +39,6 @@ service.interceptors.response.use(
       console.error(res.message || "请求失败");
       return Promise.reject(res);
     }
-
-    if (response.status !== 200) {
-      return Promise.reject(new Error(res.message || "请求失败"));
-    }
     return res;
   },
   (error) => {
