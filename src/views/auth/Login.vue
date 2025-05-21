@@ -229,9 +229,6 @@ const userStore = useUserStore();
 
 // 登录方法
 const handleLogin = async () => {
-  const setToken = (token: string) => {
-    userStore.setToken(token);
-  };
   // 重置错误信息
   loginErrors.username = "";
   loginErrors.password = "";
@@ -267,8 +264,8 @@ const handleLogin = async () => {
   }
 
   const res = await login(params);
-  const { access_token } = res.data;
-  setToken(access_token);
+  userStore.setToken(res.data.access_token);
+  userStore.setUserInfo(res.data.user);
   router.push("/");
 };
 
