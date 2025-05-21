@@ -2,7 +2,7 @@ import request from "@/utils/request";
 import { BASE_URL } from "@/config/constants";
 
 // 登录
-const login = (data: any) => request.post(`${BASE_URL}/users/login`, data);
+const login = (data: any) => request.post(`${BASE_URL}/auth/login`, data);
 
 // 注册
 const register = (data: any) =>
