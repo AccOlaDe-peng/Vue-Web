@@ -4,7 +4,7 @@ const mainRoutes: AppRouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
-    component: () => import("../../views/Home.vue"),
+    component: () => import("@/views/home/index.vue"),
     meta: {
       title: "首页",
     },
@@ -12,7 +12,7 @@ const mainRoutes: AppRouteRecordRaw[] = [
   {
     path: "/category",
     name: "Category",
-    component: () => import("../../views/Category.vue"),
+    component: () => import("@/views/Category.vue"),
     meta: {
       title: "分类页",
     },
