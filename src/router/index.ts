@@ -8,6 +8,7 @@ import mainRoutes from "./routes/main";
 import userRoutes from "./routes/user";
 import orderRoutes from "./routes/order";
 import authRoutes from "./routes/auth";
+import { useUserStore } from "@/stores/user";
 
 // 合并所有路由
 const routes: AppRouteRecordRaw[] = [
@@ -29,10 +30,14 @@ router.beforeEach((to, _, next) => {
     ? `${to.meta.title} - ${APP_TITLE}`
     : APP_TITLE;
 
+  // 在路由导航守卫内部初始化 store
+  const userStore = useUserStore();
+  const token = userStore.getToken;
+
   // 检查是否需要登录权限
   if (to.meta.requiresAuth) {
     // 检查本地存储的token
-    const isAuthenticated = getToken();
+    const isAuthenticated = token;
 
     if (!isAuthenticated) {
       // 如果未登录，重定向到登录页面

@@ -2,6 +2,8 @@
  * 项目常量配置
  */
 
+export const BASE_URL = import.meta.env.VITE_APP_BASE_API || "/api";
+
 // 分页常量
 export const PAGE_SIZE_OPTIONS = ["10", "20", "30", "50", "100"];
 
@@ -104,6 +106,16 @@ export const STORAGE_KEYS = {
   SEARCH_HISTORY: "search_history",
 };
 
+export const PUBLIC_KEY = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4BeaMGj7lyybHAOyXL8Z
+Kyd7fXuFZ/E66+fOMjm0OntAzmmgfuCa3+NB9f6molO5czrk7cG/YNOlq9dfIcqP
+Jx/F983HCTm6OdyDr1r2qR9j3aQVOvaeBsom5anyfRbhuxFEheEakicaS8CAgXG5
+3w3s05pTON3a+5lwdjsHnTEEaXlvLswhjOtH1k8glUGzIXd7nyT6eAgcfwBn6OGD
+Oxw6Wa0mO6J57SJje0IfeZX3jDArvI6SGtwI9TgXZVW23VJ94qC6zIigwK6KZVsz
+hPHoHO6oH7OJ4dk4csmuWPnOd1/E2zzmO4gGnEGf1ERBMWDWs2SJP4JfLHi/hxT0
+PwIDAQAB
+-----END PUBLIC KEY-----`;
+
 export default {
   PAGE_SIZE_OPTIONS,
   GENDER_OPTIONS,
@@ -115,4 +127,5 @@ export default {
   REGEX,
   ResponseCode,
   STORAGE_KEYS,
+  BASE_URL,
 };
